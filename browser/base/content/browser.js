@@ -10035,13 +10035,14 @@ switch(floorpinterfacenum){
     document.getElementsByTagName('head')[0].insertAdjacentElement('beforeend',Tag);
     break;
 
-    case 6:
-      if (AppConstants.platform == "linux"){
-      var Tag = document.createElement('style');
-      Tag.innerText = gnomeUI;
-      document.getElementsByTagName('head')[0].insertAdjacentElement('beforeend',Tag);
-      }
-      break;
+  case 6:
+     if (AppConstants.platform == "linux"){
+     var Tag = document.createElement('style');
+     Tag.innerText = gnomeUI;
+     document.getElementsByTagName('head')[0].insertAdjacentElement('beforeend',Tag);
+     }
+    break;
+  
 }
 
 
