@@ -7619,6 +7619,7 @@
     --menuitem-image: url("chrome://browser/skin/onion.svg");
   }
 }
+
 .subviewbutton:not(.subviewbutton-iconic, .subviewbutton-back, [checked="true"], [targetURI]) > .toolbarbutton-icon {
   width: 16px;
   height: 16px;
@@ -8294,4 +8295,8 @@
 
 #file-menu {
   --menuitem-image: url("chrome://global/skin/icons/edit-copy.svg");
+}
+
+#usercssloader-menu {
+  --menuitem-image: url("chrome://browser/skin/lepton/window-dev-tools.svg");
 }
