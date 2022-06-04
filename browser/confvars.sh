@@ -5,6 +5,7 @@
 
 MOZ_APP_VENDOR="Ablaze"
 MOZ_APP_BASENAME=Floorp
+MOZ_UPDATER=1
 
 if test "$OS_ARCH" = "WINNT"; then
   if ! test "$HAVE_64BIT_BUILD"; then
