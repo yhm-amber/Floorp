@@ -17,6 +17,7 @@ DIRS += [
     "undo-closed-tab",
     "official-site-ua",
     "ucjstool",
+    "multitabs",
 ]
 
 
