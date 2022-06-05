@@ -6308,3 +6308,18 @@ var AboutHomeStartupCache = {
     this._cacheEntryResolver(this._cacheEntry);
   },
 };
+
+  const MULTITABPREF = "floorp.enable.multitab";
+  const MULTITABID = "paxmod@numirias";
+  Services.prefs.addObserver(MULTITABPREF, async () => {
+    let multitabaddon = await AddonManager.getAddonByID(MULTITABID);
+    if (!multitabaddon) {
+      return;
+    }
+    let enabled = Services.prefs.getBoolPref(MULTITABPREF, false);
+    if (enabled) {
+      await multitabaddon.enable({ allowSystemAddons: true });
+    } else if (!enabled && multitabaddon.isActive) {
+      await multitabaddon.disable({ allowSystemAddons: true });
+    }
+  });
