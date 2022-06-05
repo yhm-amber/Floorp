@@ -2949,6 +2949,7 @@ pref("browser.startup.page", 3);//自動復元
 pref("browser.tabs.closeWindowWithLastTab", false);//最後のタブを閉じてもブラウザが閉じないように]
 pref("general.config.obscure_value", 0);
 
+pref("floorp.disable.multitab", false);
 /*-----------------------------------------------------------------------------------all.js の設定-----------------------------------------------------------------------------------*/
 
 pref("extensions.htmlaboutaddons.recommendations.enabled", false, locked);
