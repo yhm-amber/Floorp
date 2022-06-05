@@ -10317,6 +10317,13 @@ var Tag = document.createElement('style');
     `
 
 document.getElementsByTagName('head')[0].insertAdjacentElement('beforeend',Tag);
+if (Services.prefs.getBoolPref("floorp.enable.multitab", true)) {
+  var Tag = document.createElement('style')
+    Tag.innerText = `  
+    @import url("chrome://browser/skin/photon/photon-recover.css")
+   `
+     document.getElementsByTagName('head')[0].insertAdjacentElement('beforeend',Tag);
+}
 
 /*--------------------------------------------------------userChrome.js(uc.js)のコーナー---------------------------------------------------------*/
 
