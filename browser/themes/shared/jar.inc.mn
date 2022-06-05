@@ -343,6 +343,7 @@
 
 # photon
   skin/classic/browser/photon/photonChrome.css                (../shared/theme/photon/photonChrome.css)
+  skin/classic/browser/photon/photon-recover.css              (../shared/theme/photon/photon-recover.css)
   skin/classic/browser/photon/photonContent.css               (../shared/theme/photon/photonContent.css)
   skin/classic/browser/photon/photon.svg                      (../shared/theme/photon/photon.svg)
   skin/classic/browser/photon/photon-folder.svg               (../shared/theme/photon/photon-folder.svg)
