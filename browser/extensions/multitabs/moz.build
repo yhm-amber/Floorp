@@ -38,5 +38,10 @@ FINAL_TARGET_FILES.features["paxmod@numirias"]["stylesheet-api-experiment"] += [
     "stylesheet-api-experiment/schema.json",
 ]
 
+FINAL_TARGET_FILES.features["paxmod@numirias"]["updateAPIs"] += [
+    "updateAPIs/aboutConfigPrefs.js",
+    "updateAPIs/aboutConfigPrefs.json",
+]
+
 with Files("**"):
     BUG_COMPONENT = ("Firefox", "paxmod@numirias")

@@ -4913,3 +4913,16 @@
     background-image: linear-gradient(var(--toolbar-bgcolor, transparent), var(--toolbar-bgcolor, transparent)),
       linear-gradient(var(--toolbar-bgcolor), var(--toolbar-bgcolor)), var(--lwt-header-image, none) !important;
   }
+  :root {
+    --arrowpanel-menuitem-margin: 0 var(--arrowpanel-menuicon-padding) !important;
+    /* Original: 0 8px */
+    --arrowpanel-menuitem-padding-block: 5px !important;
+    /* Original: 8px */
+    --arrowpanel-menuitem-padding-inline: 5px !important;
+    /* Original: 8px */
+    --arrowpanel-menuitem-padding: var(--arrowpanel-menuitem-padding-block) var(--arrowpanel-menuitem-padding-inline) !important;
+    /* Compatibility */
+    --arrowpanel-padding: 0.8em !important;
+    /* Original: 16px or .cui-widget-panel, .cui-widget-panel::part(arrowcontent) => 4px 0 */
+   }
+   

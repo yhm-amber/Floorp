@@ -1429,7 +1429,7 @@ floorp-preference = Experimet Preferences
 browser-design-settings = Tab Bar Settings
 
 auto-reboot =If you change any of the settings below, your browser will be restarted to apply the changes. Please save the data you are working with before making any changes.
-
+enable-multitab = Enable multi-level tabs 
 operation-settings = Browser Operation Settings
 Mouse-side-button = Browser optimized for mouse operation with side buttons
 

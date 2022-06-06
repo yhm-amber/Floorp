@@ -3,14 +3,6 @@
 
 /********** Tabs **********/
 
-#TabsToolbar #tabs-newtab-button {
-    margin: 0 !important;
-    display: var(--paxmod-display-newtab) !important;
-    align-self: flex-end;
-    /* In some configurations the button may be hidden */
-    visibility: visible !important;
-}
-
 #tabbrowser-tabs {
     /* No padding, even when some tabs are pinned (see GH-88) */
     padding-inline: 0 !important;

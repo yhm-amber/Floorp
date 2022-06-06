@@ -1,21 +1,20 @@
 /* global browser */
-import iconColor from './iconcolor.js';
 import w3color from './w3color.js';
 
 const NS_XHTML = 'http://www.w3.org/1999/xhtml';
 const globalSheet = browser.runtime.getURL('browser.css');
 export let defaultOptions = {
-  enableIconColors: true,
-  displayNewtab: false,
+  enableIconColors: false,
+  displayNewtab: true,
   displayTitlebar: true,
   displayPlaceholders: false,
-  displayCloseButton: false,
+  displayCloseButton: true,
   forceCompact: true,
   font: '',
   tabSize: 10,
   minTabSize: 150,
   maxTabSize: 300,
-  minTabHeight: 29,
+  minTabHeight: 26,
   maxTabRows: 99,
   minLightness: 59,
   maxLightness: 100,
@@ -200,7 +199,9 @@ async function startup() {
   if (!('paxmod' in browser && 'stylesheet' in browser)) {
     browser.tabs.create({url: browser.runtime.getURL('missing_api.html')});
   }
-
+  const value = await browser.aboutConfigPrefs.getPref("floorp.enable.multitab");
+  console.log(value)
+ if(value){
   browser.stylesheet.load(globalSheet, 'AUTHOR_SHEET');
   browser.paxmod.load();
   let options = await getOptions();
@@ -214,7 +215,7 @@ async function startup() {
     await setOptions(newOptions);
   }
   applyOptions();
-
+ }
   // When idiling, occasionally check if icon sheets should be refreshed to
   // avoid growing a large cache.
   browser.idle.setDetectionInterval(60 * 10);

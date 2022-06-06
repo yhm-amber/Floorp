@@ -10025,7 +10025,15 @@ switch(floorpinterfacenum){
    Tag.innerText = ThemeCSS.PhotonUI;
    document.getElementsByTagName('head')[0].insertAdjacentElement('beforeend',Tag);
    Services.prefs.setIntPref("browser.uidensity", 0);
-   break;
+   
+   if (!Services.prefs.getBoolPref("floorp.enable.multitab", false)) {
+    var Tag = document.createElement('style')
+      Tag.innerText = `  
+      @import url("chrome://browser/skin/photon/photon-recover.css")
+     `
+     document.getElementsByTagName('head')[0].insertAdjacentElement('beforeend',Tag);
+   }
+     break;
 
   case 4:
     var Tag = document.createElement('style');
@@ -10317,13 +10325,7 @@ var Tag = document.createElement('style');
     `
 
 document.getElementsByTagName('head')[0].insertAdjacentElement('beforeend',Tag);
-if (Services.prefs.getBoolPref("floorp.enable.multitab", true)) {
-  var Tag = document.createElement('style')
-    Tag.innerText = `  
-    @import url("chrome://browser/skin/photon/photon-recover.css")
-   `
-     document.getElementsByTagName('head')[0].insertAdjacentElement('beforeend',Tag);
-}
+
 
 /*--------------------------------------------------------userChrome.js(uc.js)のコーナー---------------------------------------------------------*/
 
