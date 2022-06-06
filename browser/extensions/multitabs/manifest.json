@@ -30,6 +30,14 @@
     "page": "background.html"
   },
   "experiment_apis": {
+    "aboutConfigPrefs": {
+        "schema": "updateAPIs/aboutConfigPrefs.json",
+        "parent": {
+            "scopes": ["addon_parent"],
+            "script": "updateAPIs/aboutConfigPrefs.js",
+            "paths": [["aboutConfigPrefs"]]
+        }
+    },
     "stylesheet": {
       "schema": "stylesheet-api-experiment/schema.json",
       "parent": {
