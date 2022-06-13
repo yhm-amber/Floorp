@@ -563,12 +563,6 @@ SearchService.prototype = {
    *   An object representing the search engine settings.
    */
   async _loadEngines(settings) {
-    // Get user's current settings and search engine before we load engines from
-    // config. These values will be compared after engines are loaded.
-    let prevMetaData = { ...settings?.metaData };
-    let prevCurrentEngine = prevMetaData.current;
-    let prevAppDefaultEngine = prevMetaData?.appDefaultEngine;
-
     logConsole.debug("_loadEngines: start");
     let { engines, privateDefault } = await this._fetchEngineSelectorEngines();
     this._setDefaultAndOrdersFromSelector(engines, privateDefault);
@@ -597,86 +591,8 @@ SearchService.prototype = {
     this._loadEnginesMetadataFromSettings(settings.engines);
 
     logConsole.debug("_loadEngines: done");
-
-    let newCurrentEngine = this._getEngineDefault(false)?.name;
-    this._settings.setAttribute(
-      "appDefaultEngine",
-      this.originalDefaultEngine?.name
-    );
-
-    if (
-      this._shouldDisplayRemovalOfEngineNotificationBox(
-        settings,
-        prevMetaData,
-        newCurrentEngine,
-        prevCurrentEngine,
-        prevAppDefaultEngine
-      )
-    ) {
-      this._showRemovalOfSearchEngineNotificationBox(
-        prevCurrentEngine || prevAppDefaultEngine,
-        newCurrentEngine
-      );
-    }
   },
-  /**
-   * Helper function to determine if the removal of search engine notification
-   * box should be displayed.
-   *
-   * @param { object } settings
-   *   The user's search engine settings.
-   * @param { object } prevMetaData
-   *   The user's previous search settings metadata.
-   * @param { object } newCurrentEngine
-   *   The user's new current default engine.
-   * @param { object } prevCurrentEngine
-   *   The user's previous default engine.
-   * @param { object } prevAppDefaultEngine
-   *   The user's previous app default engine.
-   * @returns { boolean }
-   *   Return true if the previous default engine has been removed and
-   *   notification box should be displayed.
-   */
-  _shouldDisplayRemovalOfEngineNotificationBox(
-    settings,
-    prevMetaData,
-    newCurrentEngine,
-    prevCurrentEngine,
-    prevAppDefaultEngine
-  ) {
-    if (
-      !Services.prefs.getBoolPref("browser.search.removeEngineInfobar.enabled")
-    ) {
-      return false;
-    }
 
-    // If for some reason we were unable to install any engines and hence no
-    // default engine, do not display the notification box
-    if (!newCurrentEngine) {
-      return false;
-    }
-
-    // If the user's previous engine is different than the new current engine,
-    // or if the user was using the app default engine and the app default
-    // engine is different than the new current engine, we check if the user's
-    // settings metadata has been upddated.
-    if (
-      (prevCurrentEngine && prevCurrentEngine !== newCurrentEngine) ||
-      (!prevCurrentEngine &&
-        prevAppDefaultEngine &&
-        prevAppDefaultEngine !== newCurrentEngine)
-    ) {
-      // Check settings metadata to detect an update to locale. Sometimes when
-      // the user changes their locale it causes a change in engines.
-      // If there is no update to settings metadata then the engine change was
-      // caused by an update to config rather than a user changing their locale.
-      if (!this._didSettingsMetaDataUpdate(prevMetaData)) {
-        return true;
-      }
-    }
-
-    return false;
-  },
   /**
    * Loads engines as specified by the configuration. We only expect
    * configured engines here, user engines should not be listed.
@@ -885,18 +801,6 @@ SearchService.prototype = {
           SearchUtils.MODIFIED_TYPE.DEFAULT_PRIVATE
         );
       }
-
-      if (
-        prevMetaData &&
-        settings.metaData &&
-        !this._didSettingsMetaDataUpdate(prevMetaData) &&
-        Services.prefs.getBoolPref("browser.search.removeEngineInfobar.enabled")
-      ) {
-        this._showRemovalOfSearchEngineNotificationBox(
-          prevCurrentEngine.name,
-          this.defaultEngine.name
-        );
-      }
     }
     if (
       this._separatePrivateDefault &&
@@ -950,13 +854,6 @@ SearchService.prototype = {
       }
       SearchUtils.notifyAction(engine, SearchUtils.MODIFIED_TYPE.REMOVED);
     }
-
-    // Save app default engine to the user's settings metaData incase it has
-    // been updated
-    this._settings.setAttribute(
-      "appDefaultEngine",
-      this.originalDefaultEngine?.name
-    );
 
     this._dontSetUseSavedOrder = false;
     // Clear out the sorted engines settings, so that we re-sort it if necessary.
@@ -3021,83 +2918,6 @@ SearchService.prototype = {
     "nsIObserver",
     "nsITimerCallback",
   ]),
-<<<<<<< HEAD
-
-  /**
-   * @param {object} metaData
-   * @returns {boolean}
-   *    Returns true if metaData has different property values than
-   *    the cached _metaData.
-   */
-  _didSettingsMetaDataUpdate(metaData) {
-    let metaDataProperties = [
-      "locale",
-      "region",
-      "channel",
-      "experiment",
-      "distroID",
-    ];
-
-    return metaDataProperties.some(p => {
-      return metaData?.[p] !== this._settings.getAttribute(p);
-    });
-  },
-
-  /**
-   * Shows an infobar to notify the user their default search engine has been
-   * removed and replaced by a new default search engine.
-   *
-   * @param {string} prevCurrentEngine
-   *   The engine that was previously the default engine and is to be replaced.
-   * @param {string} newCurrentEngine
-   *   The engine that will be the new the default engine.
-   */
-  _showRemovalOfSearchEngineNotificationBox(
-    prevCurrentEngine,
-    newCurrentEngine
-  ) {
-    let win = Services.wm.getMostRecentBrowserWindow();
-    win.BrowserSearch.removalOfSearchEngineNotificationBox(
-      prevCurrentEngine,
-      newCurrentEngine
-    );
-  },
-
-  /**
-   * Get the localized manifest from the WebExtension for the given locale or
-   * manifest default locale.
-   *
-   * The search service configuration overloads the add-on manager concepts of
-   * locales, and forces particular locales within the WebExtension to be used,
-   * ignoring the user's current locale. The user's current locale is taken into
-   * account within the configuration, just not in the WebExtension.
-   *
-   * @param {object} extension
-   *   The extension to get the manifest from.
-   * @param {string} locale
-   *   The locale to load from the WebExtension. If this is `DEFAULT_TAG`, then
-   *   the default locale is loaded.
-   * @returns {object}
-   *   The loaded manifest.
-   */
-  async _getManifestForLocale(extension, locale) {
-    let manifest = extension.manifest;
-
-    // If the locale we want from the WebExtension is the extension's default
-    // then we get that from the manifest here. We do this because if we
-    // are reloading due to the locale change, the add-on manager might not
-    // have updated the WebExtension's manifest to the new version by the
-    // time we hit this code.
-    let localeToLoad =
-      locale == SearchUtils.DEFAULT_TAG ? manifest.default_locale : locale;
-
-    if (localeToLoad) {
-      manifest = await extension.getLocalizedManifest(localeToLoad);
-    }
-    return manifest;
-  },
-=======
->>>>>>> c9b62a90d7012 ([Floorp] Import source code from legacy repo)
 };
 
 var engineUpdateService = {
