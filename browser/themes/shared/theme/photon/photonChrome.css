@@ -7175,6 +7175,10 @@
     #helpMenu {
       --menuitem-image: url("chrome://global/skin/icons/help.svg");
     }
+    
+    #usercssloader-menu {
+      --menuitem-image: url("chrome://browser/skin/lepton/window-dev-tools.svg");
+    }
   }
   @supports -moz-bool-pref("userChrome.icon.global_menu") {
     /** Global Menu ***************************************************************/
