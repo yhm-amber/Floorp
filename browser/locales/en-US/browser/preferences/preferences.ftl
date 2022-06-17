@@ -1459,6 +1459,8 @@ material-effect = Allow Mica for everyone to modify the browser design
 learn-more-material = learn more
 other-preference = Other Preferences
 
+enable-userscript = Enable userChrome.js script 
+
 Search-positon-top = Display the search bar at the top of the page
 classic-menu-mode = Use classic style menus (May not be compatible)
 allow-auto-restart = Automatic restart when settings are changed that require a restart

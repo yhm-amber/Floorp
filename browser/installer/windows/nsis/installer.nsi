@@ -321,6 +321,10 @@ Section "-InstallStartCleanup"
     Delete "$INSTDIR\distribution\policies.json"
   ${EndIf}
 
+  ${If} ${FileExists} "$INSTDIR\autoconfig.js"
+    Delete "$INSTDIR\autoconfig.js"
+  ${EndIf}
+
   ${If} ${FileExists} "$INSTDIR\distribution"
     RmDir "$INSTDIR\distribution"
   ${EndIf}

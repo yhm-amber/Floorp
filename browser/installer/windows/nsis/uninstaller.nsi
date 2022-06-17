@@ -622,8 +622,9 @@ Section "Uninstall"
   ${If} ${FileExists} "$INSTDIR\defaults\pref\channel-prefs.js"
     Delete /REBOOTOK "$INSTDIR\defaults\pref\channel-prefs.js"
   ${EndIf}
-  ${If} ${FileExists} "$INSTDIR\defaults\pref\autoconfig.js"
-    Delete /REBOOTOK "$INSTDIR\defaults\pref\autoconfig.js"
+  
+  ${If} ${FileExists} "$INSTDIR\autoconfig.js"
+    Delete /REBOOTOK "$INSTDIR\autoconfig.js"
   ${EndIf}
 
   ${If} ${FileExists} "$INSTDIR\autoconfig.cfg"

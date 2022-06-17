@@ -1,0 +1,3 @@
+FINAL_TARGET = "dist/bin"
+
+FINAL_TARGET_FILES += ["autoconfig.js"]

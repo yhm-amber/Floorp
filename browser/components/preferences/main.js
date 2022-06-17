@@ -215,6 +215,7 @@ Preferences.addAll([
   { id: "floorp.legacy.menu.mode", type:"bool"},
   { id: "floorp.enable.auto.restart", type:"bool"},
   { id: "floorp.enable.multitab", type:"bool"},
+  { id: "toolkit.legacyUserProfileCustomizations.script", type:"bool"},
 
 ]);
 

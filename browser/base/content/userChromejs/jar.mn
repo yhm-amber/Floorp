@@ -5,7 +5,7 @@
 browser.jar:
 % content userchromejs %content/userchromejs/ contentaccessible=yes
 
-# userScript (今後ここに追加)
+# userScript
    content/userchromejs/chromecss.uc.js             (chromecss.uc.js)
    content/userchromejs/sidebarautohide.uc.js       (sidebarautohide.uc.js)
 

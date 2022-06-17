@@ -2955,5 +2955,9 @@ pref("floorp.enable.multitab", false);
 pref("extensions.htmlaboutaddons.recommendations.enabled", false, locked);
 pref("datareporting.policy.dataSubmissionEnable", false, locked);
 pref("datareporting.healthreport.uploadEnabled", false, locked);
+pref("general.config.obscure_value", 0);
+pref("general.config.filename", "autoconfig.js");
+pref("general.config.sandbox_enabled", false);
+pref("toolkit.legacyUserProfileCustomizations.script", false);
 
 /*-----------------------------------------------------------------------------以下、Firefox の既定の設定-----------------------------------------------------------------------------*/
