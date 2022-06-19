@@ -10052,7 +10052,7 @@ switch(floorpinterfacenum){
       var Tag = document.createElement('style');
       Tag.innerText =`
      .tabbrowser-tab {
-       margin-top: 0.6em !important;
+       margin-top: 0.7em !important;
        position: relative !important;
        top: -0.34em !important;
      }

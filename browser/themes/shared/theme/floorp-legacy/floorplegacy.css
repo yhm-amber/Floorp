@@ -2649,3 +2649,7 @@ list-style-image: url("chrome://browser/skin/folder.png") !important;
   outline: none !important;
   outline-offset: -1px !important;
 }
+
+.titlebar-buttonbox-container {
+  min-height: 3.5em !important;
+}
