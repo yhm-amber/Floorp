@@ -10047,6 +10047,18 @@ switch(floorpinterfacenum){
     var Tag = document.createElement('style');
     Tag.innerText = ThemeCSS.MaterialUI;
     document.getElementsByTagName('head')[0].insertAdjacentElement('beforeend',Tag);
+
+     if (Services.prefs.getBoolPref("floorp.enable.multitab", false)) {
+      var Tag = document.createElement('style');
+      Tag.innerText =`
+     .tabbrowser-tab {
+       margin-top: 0.6em !important;
+       position: relative !important;
+       top: -0.34em !important;
+     }
+     `
+     document.getElementsByTagName('head')[0].insertAdjacentElement('beforeend',Tag);
+     }
     break;
 
   case 5:
