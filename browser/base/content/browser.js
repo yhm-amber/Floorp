@@ -10351,6 +10351,8 @@ var firefox = document.createElement('script');
 firefox.src = "chrome://userchromejs/content/sidebarautohide.uc.js"; 
 document.head.appendChild(firefox); 
 
+/*-----------------------------------------------スタートアップ時の処理--------------------------------------------------------*/
+
 function getSystemLocale() {
   try {
     return Cc["@mozilla.org/intl/ospreferences;1"].getService(
@@ -10360,9 +10362,6 @@ function getSystemLocale() {
     return null;
   }
 }
-
-/*-----------------------------------------------スタートアップ時の処理--------------------------------------------------------*/
-
 
 if (!Services.prefs.prefHasUserValue("intl.locale.requested")) {
   const systemlocale = getSystemLocale()
