@@ -823,10 +823,9 @@
 <groupbox data-category="paneGeneral" id="floorp-experiment"
           hidden="true">
     <label><html:h1 id="floorp-settings" data-l10n-id="floorp-preference"/></label>
-    <description class="text-blurb" id="sub-preference" data-l10n-id="auto-reboot"></description>
 
     <html:h2 data-l10n-id="operation-settings"/>
-    <hbox align="center" data-subcategory="cfrfeatures">
+    <hbox>
      <description class="text-blurb" data-l10n-id="Mouse-side-button"></description>
      <checkbox id="MouseSideButton" 
             class="options"  preference="floorp.optimized.msbutton.ope"/>
@@ -848,64 +847,64 @@
 
   </radiogroup>
 
-  <label><html:h2 id="treestyletab" data-l10n-id="bookmarks-bar-settings"/></label>
-  <hbox align="center" data-subcategory="cfrfeatures">
+  <label><html:h2 data-l10n-id="bookmarks-bar-settings"/></label>
+  <hbox>
     <description class="text-blurb"  data-l10n-id="bookmarks-focus-mode"></description>
-    <checkbox id="treestyletabSettings" 
+    <checkbox  
              preference="floorp.bookmarks.bar.focus.mode" class="options"/>
   </hbox>
 
-  <hbox align="center" data-subcategory="cfrfeatures">
+  <hbox>
     <description class="text-blurb"  data-l10n-id="bookmarks-bottom-mode"></description>
-    <checkbox id="treestyletabSettings" 
+    <checkbox  
              preference="floorp.bookmarks.fakestatus.mode" class="options"/>
   </hbox>
     
   <label><html:h2 id="treestyletab" data-l10n-id="treestyletabSettings-l10"/></label>
-  <hbox align="center" data-subcategory="cfrfeatures">
+  <hbox>
     <description class="text-blurb"  data-l10n-id="treestyletab-Settings"></description>
     <checkbox id="treestyletabSettings" class="options" 
              preference="floorp.Tree-type.verticaltab.optimization"/>
   </hbox>
 
   <!--その他の設定 -->
-  <label><html:h2 id="treestyletab" data-l10n-id="other-preference"/></label>
-  <hbox align="center" data-subcategory="cfrfeatures">
+  <label><html:h2 data-l10n-id="other-preference"/></label>
+  <hbox>
     <description class="text-blurb"  data-l10n-id="material-effect"></description>
-    <checkbox id="treestyletabSettings" 
+    <checkbox  
     class="options"       preference="floorp.material.effect.enable"/>
     <label
       class="learnMore" is="text-link" href="https://support.ablaze.one/floorp/452/"
       data-l10n-id="do-not-track-learn-more"></label>
   </hbox>
 
-  <hbox align="center" data-subcategory="cfrfeatures">
+  <hbox>
     <description class="text-blurb"  data-l10n-id="enable-multitab"></description>
-    <checkbox id="treestyletabSettings" 
+    <checkbox  
              preference="floorp.enable.multitab" class="options"/>
   </hbox>
 
-  <hbox align="center" data-subcategory="cfrfeatures">
+  <hbox>
     <description class="text-blurb"  data-l10n-id="enable-userscript"></description>
-    <checkbox id="treestyletabSettings" 
+    <checkbox  
              preference="toolkit.legacyUserProfileCustomizations.script" class="options"/>
   </hbox>
 
-  <hbox align="center" data-subcategory="cfrfeatures">
+  <hbox>
     <description class="text-blurb"  data-l10n-id="Search-positon-top"></description>
-    <checkbox id="treestyletabSettings" 
+    <checkbox  
              preference="floorp.search.top.mode" class="options"/>
   </hbox>
 
-  <hbox align="center" data-subcategory="cfrfeatures">
+  <hbox>
     <description class="text-blurb"  data-l10n-id="classic-menu-mode"></description>
-    <checkbox id="treestyletabSettings" 
+    <checkbox  
              preference="floorp.legacy.menu.mode" class="options"/>
   </hbox>
 
-  <hbox align="center" data-subcategory="cfrfeatures">
+  <hbox>
     <description class="text-blurb"  data-l10n-id="allow-auto-restart"></description>
-    <checkbox id="treestyletabSettings" 
+    <checkbox  
              preference="floorp.enable.auto.restart" />
   </hbox>
 
@@ -915,8 +914,7 @@
     <label>
       <html:h1 data-l10n-id="ui-preference" id="floorp-ui"/>
     </label>
-    <description class="text-blurb" id="sub-preference" data-l10n-id="auto-reboot"></description>
-
+  
     <radiogroup id="SystemThemeColorGroup" preference="floorp.browser.user.interface">
 
  <!--デザイン設定 -->

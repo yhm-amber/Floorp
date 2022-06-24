@@ -558,9 +558,9 @@ var gMainPane = {
     });
 
     //themes
-      const themeelement = document.getElementsByClassName('themes');
-        for(let i = 0; i < themeelement.length; i++) {
-          themeelement[i].addEventListener('click',
+      const ThemeClass = document.getElementsByClassName('themes');
+        for(let i = 0; i < ThemeClass.length; i++) {
+          ThemeClass[i].addEventListener('click',
          function()
           {
             if (!Services.prefs.getBoolPref("floorp.enable.auto.restart", false)){
@@ -583,9 +583,9 @@ var gMainPane = {
             ,false);
         }
 
-        const tabarelement = document.getElementsByClassName('tabbar');
-        for(let i = 0; i < tabarelement.length; i++) {
-          tabarelement[i].addEventListener('click',
+        const TabbarClass = document.getElementsByClassName('tabbar');
+        for(let i = 0; i < TabbarClass.length; i++) {
+          TabbarClass[i].addEventListener('click',
   
           function()
           {
@@ -634,6 +634,8 @@ var gMainPane = {
   
             ,false);
         }
+
+        //fininsh
 
     // Initializes the fonts dropdowns displayed in this pane.
     this._rebuildFonts();
