@@ -4938,3 +4938,7 @@
    :root[tabsintitlebar][sizemode="maximized"] #titlebar {
     appearance: unset !important;
     }
+
+    .tab-background {
+      border-radius: 0px 0px 0px 0px !important;
+    }
