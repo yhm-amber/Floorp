@@ -878,11 +878,6 @@
   </hbox>
 
   <hbox>
-    <description data-l10n-id="enable-userscript"></description>
-    <checkbox preference="toolkit.legacyUserProfileCustomizations.script" class="options"/>
-  </hbox>
-
-  <hbox>
     <description data-l10n-id="Search-positon-top"></description>
     <checkbox preference="floorp.search.top.mode" class="options"/>
   </hbox>
@@ -897,13 +892,20 @@
     <checkbox preference="floorp.enable.auto.restart" />
   </hbox>
 
+  <hbox>
+    <description data-l10n-id="enable-userscript"></description>
+    <checkbox preference="toolkit.legacyUserProfileCustomizations.script" class="options"/>
+    <label class="learnMore" is="text-link" href="https://support.ablaze.one/floorp/530/" data-l10n-id="do-not-track-learn-more"></label>
+  </hbox>
+  <description class="indent tip-caption" data-l10n-id="about-legacy-components"/>
+
 </groupbox>
 
-<groupbox id="SystemThemeGroup" data-category="paneGeneral" hidden="true">
+<!--デザイン設定 -->
+ <groupbox id="SystemThemeGroup" data-category="paneGeneral" hidden="true">
     <label><html:h1 data-l10n-id="ui-preference" id="floorp-ui"/></label>
   
     <radiogroup id="SystemThemeColorGroup" preference="floorp.browser.user.interface">
- <!--デザイン設定 -->
      <radio value="1" class="themes"  data-l10n-id="firefox-proton"/>
       <label>
         <div id="proton"></div>  

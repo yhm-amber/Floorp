@@ -1456,10 +1456,10 @@ bookmarks-focus-mode = Show the bookmark bar when the mouse is focused on the to
 bookmarks-bottom-mode = Bookmark bar at the bottom of the browser
 
 material-effect = Allow Mica for everyone to modify the browser design
-learn-more-material = learn more
 other-preference = Other Preferences
 
-enable-userscript = Enable userChrome.js script 
+enable-userscript = Enable legacy components
+about-legacy-components = Enabling this feature may cause unexpected bugs or fatal errors
 
 Search-positon-top = Display the search bar at the top of the page
 classic-menu-mode = Use classic style menus (May not be compatible)
