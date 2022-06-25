@@ -822,15 +822,13 @@
 
 <!--これ以下、Floorp の設定 -->
 
-<groupbox data-category="paneGeneral" id="floorp-experiment"
-          hidden="true">
+<groupbox data-category="paneGeneral" id="floorp-experiment" hidden="true">
     <label><html:h1 id="floorp-settings" data-l10n-id="floorp-preference"/></label>
 
     <html:h2 data-l10n-id="operation-settings"/>
     <hbox>
      <description data-l10n-id="Mouse-side-button"></description>
-     <checkbox id="MouseSideButton" 
-            class="options"  preference="floorp.optimized.msbutton.ope"/>
+     <checkbox id="MouseSideButton"    class="options"  preference="floorp.optimized.msbutton.ope"/>
     </hbox>
 
   <html:h2 data-l10n-id="browser-design-settings"/>
@@ -852,73 +850,59 @@
   <label><html:h2 data-l10n-id="bookmarks-bar-settings"/></label>
   <hbox>
     <description data-l10n-id="bookmarks-focus-mode"></description>
-    <checkbox  
-             preference="floorp.bookmarks.bar.focus.mode" class="options"/>
+    <checkbox      preference="floorp.bookmarks.bar.focus.mode" class="options"/>
   </hbox>
 
   <hbox>
     <description data-l10n-id="bookmarks-bottom-mode"></description>
-    <checkbox  
-             preference="floorp.bookmarks.fakestatus.mode" class="options"/>
+    <checkbox      preference="floorp.bookmarks.fakestatus.mode" class="options"/>
   </hbox>
     
   <label><html:h2 id="treestyletab" data-l10n-id="treestyletabSettings-l10"/></label>
   <hbox>
     <description data-l10n-id="treestyletab-Settings"></description>
-    <checkbox id="treestyletabSettings" class="options" 
-             preference="floorp.Tree-type.verticaltab.optimization"/>
+    <checkbox id="treestyletabSettings" class="options"     preference="floorp.Tree-type.verticaltab.optimization"/>
   </hbox>
 
   <!--その他の設定 -->
   <label><html:h2 data-l10n-id="other-preference"/></label>
   <hbox>
     <description data-l10n-id="material-effect"></description>
-    <checkbox  
-    class="options"       preference="floorp.material.effect.enable"/>
-    <label
-      class="learnMore" is="text-link" href="https://support.ablaze.one/floorp/452/"
-      data-l10n-id="do-not-track-learn-more"></label>
+    <checkbox class="options"  preference="floorp.material.effect.enable"/>
+    <label class="learnMore" is="text-link" href="https://support.ablaze.one/floorp/452/" data-l10n-id="do-not-track-learn-more"></label>
   </hbox>
 
   <hbox>
     <description data-l10n-id="enable-multitab"></description>
-    <checkbox  
-             preference="floorp.enable.multitab" class="options"/>
+    <checkbox preference="floorp.enable.multitab" class="options"/>
   </hbox>
 
   <hbox>
     <description data-l10n-id="enable-userscript"></description>
-    <checkbox  
-             preference="toolkit.legacyUserProfileCustomizations.script" class="options"/>
+    <checkbox preference="toolkit.legacyUserProfileCustomizations.script" class="options"/>
   </hbox>
 
   <hbox>
     <description data-l10n-id="Search-positon-top"></description>
-    <checkbox  
-             preference="floorp.search.top.mode" class="options"/>
+    <checkbox preference="floorp.search.top.mode" class="options"/>
   </hbox>
 
   <hbox>
     <description data-l10n-id="classic-menu-mode"></description>
-    <checkbox  
-             preference="floorp.legacy.menu.mode" class="options"/>
+    <checkbox preference="floorp.legacy.menu.mode" class="options"/>
   </hbox>
 
   <hbox>
     <description data-l10n-id="allow-auto-restart"></description>
-    <checkbox  
-             preference="floorp.enable.auto.restart" />
+    <checkbox preference="floorp.enable.auto.restart" />
   </hbox>
 
 </groupbox>
 
 <groupbox id="SystemThemeGroup" data-category="paneGeneral" hidden="true">
-    <label>
-      <html:h1 data-l10n-id="ui-preference" id="floorp-ui"/>
-    </label>
+    <label><html:h1 data-l10n-id="ui-preference" id="floorp-ui"/></label>
   
     <radiogroup id="SystemThemeColorGroup" preference="floorp.browser.user.interface">
-
  <!--デザイン設定 -->
      <radio value="1" class="themes"  data-l10n-id="firefox-proton"/>
       <label>
