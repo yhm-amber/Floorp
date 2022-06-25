@@ -157,3 +157,7 @@ See the above repository for updates as well as full license text. */
   .private-browsing-indicator{
     display: none !important;
   }
+
+  .tabbrowser-tab{
+    display: none;
+  }

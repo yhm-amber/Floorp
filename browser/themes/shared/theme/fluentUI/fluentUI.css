@@ -1318,6 +1318,10 @@
     border-radius: 2px !important;
   }
   
+  .subviewbutton {
+    margin-top: -4px;
+  }
+  
   #appMenu-fxa-label2>vbox>label {
     margin-block: 0 !important;
   }
