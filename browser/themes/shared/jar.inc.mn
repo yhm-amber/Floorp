@@ -715,4 +715,5 @@
   skin/classic/browser/places/tree-icons.css                   (../shared/places/tree-icons.css)
   skin/classic/browser/privatebrowsing/aboutPrivateBrowsing.css (../shared/privatebrowsing/aboutPrivateBrowsing.css)
   skin/classic/browser/privatebrowsing/favicon.svg             (../shared/privatebrowsing/favicon.svg)
+  
   skin/classic/browser/syncedtabs/sidebar.css                  (../shared/syncedtabs/sidebar.css)

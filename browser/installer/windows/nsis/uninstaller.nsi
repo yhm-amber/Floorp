@@ -151,7 +151,7 @@ OutFile "helper.exe"
 !endif
 ShowUnInstDetails nevershow
 
-!define URLUninstallSurvey "about:config"
+!define URLUninstallSurvey "https://qsurvey.mozilla.com/s3/FF-Desktop-Post-Uninstall?channel=${UpdateChannel}&version=${AppVersion}&osversion="
 
 ; Support for the profile refresh feature
 !define URLProfileRefreshHelp "https://support.mozilla.org/kb/refresh-firefox-reset-add-ons-and-settings"
@@ -200,6 +200,10 @@ UninstPage custom un.preConfirm
 !insertmacro MUI_UNPAGE_INSTFILES
 
 ; Finish Page
+!define MUI_FINISHPAGE_SHOWREADME
+!define MUI_FINISHPAGE_SHOWREADME_NOTCHECKED
+!define MUI_FINISHPAGE_SHOWREADME_TEXT $(UN_SURVEY_CHECKBOX_LABEL)
+!define MUI_FINISHPAGE_SHOWREADME_FUNCTION un.Survey
 !define MUI_PAGE_CUSTOMFUNCTION_PRE un.preFinish
 !define MUI_PAGE_CUSTOMFUNCTION_SHOW un.showFinish
 !insertmacro MUI_UNPAGE_FINISH
@@ -448,7 +452,7 @@ Section "Uninstall"
   ${EndIf}
 
   ; Remove the updates directory
-  ${un.CleanUpdateDirectories} "Ablaze\Firefox" "Ablaze\updates"
+  ${un.CleanUpdateDirectories} "Ablaze\Floorp" "Ablaze\updates"
 
   ; Remove any app model id's stored in the registry for this install path
   DeleteRegValue HKCU "Software\Ablaze\${AppName}\TaskBarIDs" "$INSTDIR"
@@ -614,21 +618,8 @@ Section "Uninstall"
 
   ${un.RemovePrecompleteEntries} "false"
 
-  ${If} ${FileExists} "$INSTDIR\distribution\policies.json"
-    Delete /REBOOTOK "$INSTDIR\distribution\policies.json"
-  ${EndIf}
-  RmDir "$INSTDIR\distribution"
-
   ${If} ${FileExists} "$INSTDIR\defaults\pref\channel-prefs.js"
     Delete /REBOOTOK "$INSTDIR\defaults\pref\channel-prefs.js"
-  ${EndIf}
-  
-  ${If} ${FileExists} "$INSTDIR\autoconfig.js"
-    Delete /REBOOTOK "$INSTDIR\autoconfig.js"
-  ${EndIf}
-
-  ${If} ${FileExists} "$INSTDIR\autoconfig.cfg"
-    Delete /REBOOTOK "$INSTDIR\autoconfig.cfg"
   ${EndIf}
   RmDir "$INSTDIR\defaults\pref"
   RmDir "$INSTDIR\defaults"

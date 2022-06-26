@@ -2500,7 +2500,10 @@ var gMainPane = {
 
     let internalMenuItem;
     // Add the "Open in Firefox" option for optional internal handlers.
-    if (handlerInfo instanceof InternalHandlerInfoWrapper) {
+    if (
+      handlerInfo instanceof InternalHandlerInfoWrapper &&
+      !handlerInfo.preventInternalViewing
+    ) {
       internalMenuItem = document.createXULElement("menuitem");
       internalMenuItem.setAttribute(
         "action",
