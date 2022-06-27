@@ -6,3 +6,5 @@ if CONFIG["OS_TARGET"] == "Linux":
 if CONFIG["OS_TARGET"] == "WINNT":
  FINAL_TARGET_FILES += ["windows/policies.json"]
  
+if CONFIG["OS_TARGET"] == "Darwin":
+ FINAL_TARGET_FILES += ["mac/policies.json"]
