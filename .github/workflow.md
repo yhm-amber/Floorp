@@ -215,6 +215,9 @@ size is the size of the mar file. If you upload the mar file to GitHub, you can 
 ```
 curl -v https://api.github.com/repos/Floorp-Projects/Floorp/releases/latest
 ```
-Place the completed xml in http://repo.ablaze.one/data/floorp/update/update.xml
+Place the completed xml in 
+
+Windows：https: //repo.ablaze.one/data/floorp/10.0.0/WINNT/update.xml
+macOS：https: //repo.ablaze.one/data/floorp/10.0.0/Darwin/update.xml
 
 This completes the release
