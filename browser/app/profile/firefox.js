@@ -1268,7 +1268,28 @@ pref("dom.ipc.shims.enabledWarnings", false);
 #endif
 
 #if defined(XP_LINUX) && defined(MOZ_SANDBOX)
-
+  // This pref is introduced as part of bug 742434, the naming is inspired from
+  // its Windows/Mac counterpart, but on Linux it's an integer which means:
+  // 0 -> "no sandbox"
+  // 1 -> "content sandbox using seccomp-bpf when available" + ipc restrictions
+  // 2 -> "seccomp-bpf + write file broker"
+  // 3 -> "seccomp-bpf + read/write file brokering"
+  // 4 -> all of the above + network/socket restrictions + chroot
+  //
+  // The purpose of this setting is to allow Linux users or distros to disable
+  // the sandbox while we fix their problems, or to allow running Firefox with
+  // exotic configurations we can't reasonably support out of the box.
+  //
+  pref("security.sandbox.content.level", 4);
+  // Introduced as part of bug 1608558.  Linux is currently the only platform
+  // that uses a sandbox level for the socket process.  There are currently
+  // only 2 levels:
+  // 0 -> "no sandbox"
+  // 1 -> "sandboxed, allows socket operations and reading necessary certs"
+  pref("security.sandbox.socket.process.level", 1);
+  pref("security.sandbox.content.write_path_whitelist", "");
+  pref("security.sandbox.content.read_path_whitelist", "");
+  pref("security.sandbox.content.syscall_whitelist", "");
 #endif
 
 #if defined(XP_OPENBSD) && defined(MOZ_SANDBOX)
@@ -1526,7 +1547,7 @@ pref("browser.newtabpage.activity-stream.discoverystream.compactImages.enabled",
 pref("browser.newtabpage.activity-stream.discoverystream.imageGradient.enabled", false);
 pref("browser.newtabpage.activity-stream.discoverystream.titleLines", 3);
 pref("browser.newtabpage.activity-stream.discoverystream.descLines", 3);
-pref("browser.newtabpage.activity-stream.discoverystream.readTime.enabled", false);
+pref("browser.newtabpage.activity-stream.discoverystream.readTime.enabled", true);
 pref("browser.newtabpage.activity-stream.discoverystream.newSponsoredLabel.enabled", false);
 pref("browser.newtabpage.activity-stream.discoverystream.essentialReadsHeader.enabled", false);
 pref("browser.newtabpage.activity-stream.discoverystream.editorsPicksHeader.enabled", false);
@@ -1810,7 +1831,6 @@ pref("dom.storage_access.enabled", true);
 // Enable URL query stripping in Nightly.
 #ifdef NIGHTLY_BUILD
 pref("privacy.query_stripping.enabled", true);
-pref("privacy.query_stripping.strip_list", "mc_eid oly_anon_id oly_enc_id __s vero_id _hsenc mkt_tok fbclid");
 #endif
 
 pref("browser.contentblocking.cryptomining.preferences.ui.enabled", true);
