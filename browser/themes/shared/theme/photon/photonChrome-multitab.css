@@ -4942,3 +4942,7 @@
     .tab-background {
       border-radius: 0px 0px 0px 0px !important;
     }
+
+    .tabbrowser-tab, .tab-stack {
+      min-height: 2.54em !important;
+    }
