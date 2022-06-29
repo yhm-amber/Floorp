@@ -17,7 +17,7 @@ function getSystemLocale() {
     }
   }
   
-  //OS の言語設定への自動追従
+  //OS の言語設定への自動追従（この if に使用される pref は初回起動時のみ操作されます。この中にコードを書くと初回起動時のみ動作します）
   if (!Services.prefs.prefHasUserValue("intl.locale.requested")) {
     const systemlocale = getSystemLocale()
     Services.prefs.setStringPref("intl.locale.requested", systemlocale)
