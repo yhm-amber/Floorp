@@ -17,6 +17,7 @@
 
 @media (-moz-platform: linux) {
   #setDefaultPane,
+  #macOS-only,
   #Windows-only
   {
     display: none !important;
@@ -24,7 +25,15 @@
 }
 
 @media (-moz-platform: windows){
+  #macOS-only,
   #Linux-only{
+    display: none !important;
+  }
+}
+
+@media (-moz-platform: macos) {
+  #Linux-only,
+  #Windows-only{
     display: none !important;
   }
 }
