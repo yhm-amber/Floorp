@@ -8,8 +8,14 @@
  }
  
  .wordmark{
-   background-size: 20em !important;
-   width: 24rem !important;
+  background-size: 20em !important;
+  width: 24rem !important;
+}
+
+ @media (-moz-platform: macos) {
+  .wordmark{
+  padding-left: 2em;
+  }
  }
  
  #search-handoff-button{
