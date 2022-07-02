@@ -170,5 +170,4 @@ for icon in ("firefox", "document", "newwindow", "newtab", "pbmode", "document_p
 
 DIRS += [
     "distribution",
-    "autoconfig",
 ]

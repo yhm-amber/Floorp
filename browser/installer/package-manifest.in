@@ -269,6 +269,7 @@
 @RESPATH@/browser/@PREF_DIR@/firefox.js
 @RESPATH@/browser/@PREF_DIR@/firefox-branding.js
 @RESPATH@/greprefs.js
+@RESPATH@/defaults/autoconfig/legacy_component.js
 @RESPATH@/defaults/autoconfig/prefcalls.js
 @RESPATH@/browser/defaults/permissions
 ; Remote Settings JSON dumps
@@ -282,7 +283,6 @@
 ; gre location for now.
 @RESPATH@/defaults/pref/channel-prefs.js
 @RESPATH@/distribution/policies.json
-@RESPATH@/autoconfig.js
 
 ; Background tasks-specific preferences.  These are in the GRE
 ; location since they apply to all tasks at this time.
