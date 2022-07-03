@@ -32,8 +32,7 @@
 }
 
 @media (-moz-platform: macos) {
-  #Linux-only,
-  #Windows-only{
+  #Linux-only{
     display: none !important;
   }
 }

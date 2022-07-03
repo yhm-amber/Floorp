@@ -71,11 +71,11 @@ switch(floorpinterfacenum){
     break;
 
   case 5:
-    if (AppConstants.platform == "win"){
+    if (AppConstants.platform != "linux") {
     var Tag = document.createElement('style');
     Tag.innerText = ThemeCSS.fluentUI;
     document.getElementsByTagName('head')[0].insertAdjacentElement('beforeend',Tag);
-     }
+    }
     break;
 
   case 6:
