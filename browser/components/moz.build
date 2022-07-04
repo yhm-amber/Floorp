@@ -27,6 +27,7 @@ with Files("controlcenter/**"):
 
 
 DIRS += [
+    "aboutcontributor",
     "about",
     "aboutlogins",
     "attribution",
