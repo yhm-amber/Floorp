@@ -34,6 +34,7 @@ DIRS += [
     "customizableui",
     "doh",
     "downloads",
+    "aboutdino",
     "enterprisepolicies",
     "extensions",
     "pagedata",
